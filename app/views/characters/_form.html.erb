@@ -1,0 +1,12 @@
+<%= form_with model: @character do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+
+    <%= form.submit %>
+<% end %>
