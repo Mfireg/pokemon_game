@@ -16,4 +16,8 @@ class CharacterView
     def display_gender
         @character.gender
     end
+
+    def display_captured_pokemons
+        @character.captured_pokemons
+    end
 end

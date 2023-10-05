@@ -22,7 +22,6 @@ gem "importmap-rails"
 gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -41,6 +40,15 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+
+gem 'httparty'
+
+gem 'stimulus-rails'
+
+gem 'webpacker'
+
+gem 'hotwire-rails'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

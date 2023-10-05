@@ -1,0 +1,15 @@
+<div data-controller="battle">
+  <h1>Pokemon Health:</h1><span data-battle-target="health">100</span>
+
+  <button data-battle-target="attack" data-action="click->battle#attack">
+    Attack
+  </button>
+  |
+  <button data-battle-target="throwPokeball" data-action="click->battle#throw_a_pokeball">
+    Throw a Pokeball
+  </button>
+
+  <turbo-frame data-battle-target="pokemonCapturesFrame">
+    <%= @captured %>
+  </turbo-frame>
+</div>

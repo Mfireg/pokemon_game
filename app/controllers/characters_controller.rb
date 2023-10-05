@@ -1,4 +1,8 @@
 class CharactersController < ApplicationController
+    protect_from_forgery with: :exception
+
+    include Capture
+
     def index; end
 
     def new
@@ -19,6 +23,14 @@ class CharactersController < ApplicationController
         character = Character.find(params[:id])
         @character_view = CharacterView.new(character)
     end
+
+    def throw_pokeball
+        @character = Character.find(params[:id])
+        @pokemon = Pokemon.find(params[:pokemon_id])
+        captured = @character.capture_pokemon(@character, @pokemon)
+    
+        render json: captured
+      end
 
     private
 

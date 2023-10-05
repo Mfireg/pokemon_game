@@ -12,5 +12,20 @@
     <p>
         <b>Gender:</b> <%= @character_view.display_gender || "No info" %>
     </p>
-</div>
 
+<%= image_tag(
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/82779292-b372-434b-99ba-d166c46223b4/d636jws-4d501ffb-8217-4e31-87ea-b5157ea8b87c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzgyNzc5MjkyLWIzNzItNDM0Yi05OWJhLWQxNjZjNDYyMjNiNFwvZDYzNmp3cy00ZDUwMWZmYi04MjE3LTRlMzEtODdlYS1iNTE1N2VhOGI4N2MucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.6gXUCQ9XCrGAOg6jgmj7riaoCNpOODj-YD79gu7zNGI", 
+    alt: "Trainer Image",
+    width: 250) %>
+    <h1>Captured Pokemon</h1>
+    <div>
+        <% @character_view.display_captured_pokemons.each do |pokemon| %>
+            <div>
+                <p>
+                    <b>Name: </b> <%= pokemon.name %>
+                </p>
+                <%= image_tag("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{pokemon.id}.png", alt: "Pokemon Image") %>
+            </div>
+        <% end %>
+    </div>
+</div>
