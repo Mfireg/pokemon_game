@@ -1,5 +1,20 @@
 <div data-controller="battle">
-  <h1>Pokemon Health:</h1><span data-battle-target="health">100</span>
+  <span style="display: none;" data-battle-target="pokemonId">
+    <%= @pokemon["pokemon_id"] %>
+  </span>
+
+  <div>
+    <%= image_tag("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{@pokemon["pokemon_id"]}.png", alt: "Pokemon Image") %>
+    <p>
+      <b>Name: </b> <span data-battle-target="pokemonName"><%= @pokemon["pokemon_name"] %></span>
+    </p>
+    <p>
+      <b>Type: </b> <span data-battle-target="pokemonElement"><%= @pokemon["pokemon_type"] %></span>
+    </p>
+  </div>
+  
+
+  <h1>Pokemon Health: <span data-battle-target="health">100</span></h1>
 
   <button data-battle-target="attack" data-action="click->battle#attack">
     Attack

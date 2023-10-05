@@ -22,7 +22,7 @@
         <% @character_view.display_captured_pokemons.each do |pokemon| %>
             <div>
                 <p>
-                    <b>Name: </b> <%= pokemon.name %>
+                    <b>Name: </b> <%= pokemon.name.capitalize %>
                 </p>
                 <%= image_tag("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/#{pokemon.id}.png", alt: "Pokemon Image") %>
             </div>

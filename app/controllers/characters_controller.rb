@@ -13,7 +13,7 @@ class CharactersController < ApplicationController
         @character = Character.new(character_params)
 
         if @character.save
-            redirect_to @character, notice: 'Character successfuly created.'
+            redirect_to @character, notice: 'Character succesfully created.'
         else
             render :new, status: :unprocessable_entity
         end
@@ -26,7 +26,7 @@ class CharactersController < ApplicationController
 
     def throw_pokeball
         @character = Character.find(params[:id])
-        @pokemon = Pokemon.find(params[:pokemon_id])
+        @pokemon = Pokemon.find_or_create_by(id: params[:pokemon_id], name: params[:pokemon_name], element: params[:pokemon_element])
         captured = @character.capture_pokemon(@character, @pokemon)
     
         render json: captured

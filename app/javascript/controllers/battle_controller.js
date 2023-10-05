@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["health", "pokemonCapturesFrame", "throwPokeball", "attack"];
+  static targets = ["health", "pokemonCapturesFrame", "throwPokeball", "attack", "pokemonId", "pokemonName", "pokemonElement"];
   
   attack() {
     const damage = this.calculate_damage();
@@ -20,7 +20,9 @@ export default class extends Controller {
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     const url = 'characters/1/throw_pokeball';
     const data = {
-      pokemon_id: '1'
+      pokemon_id: Number(this.pokemonIdTarget.textContent),
+      pokemon_name: this.pokemonNameTarget.textContent,
+      pokemon_element: this.pokemonElementTarget.textContent
     };
 
     const response = await fetch(url, {
@@ -33,17 +35,15 @@ export default class extends Controller {
     });
 
     if (response.ok) {
-      let redirectURL = '';
+      // TODO => let redirectURL = ''; 
       const captured = await response.json();
       this.throwPokeballTarget.disabled = true;
       this.attackTarget.disabled = true;
 
       if (captured) {
         this.pokemonCapturesFrameTarget.innerHTML = 'Pokemon captured!';
-        this.redirectURL = '/character/1'
       } else {
         this.pokemonCapturesFrameTarget.innerHTML = 'You were not lucky this time.';
-        this.redirectURL = '/map'
       }
     }
   }

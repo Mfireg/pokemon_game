@@ -78,4 +78,6 @@ group :development, :test do
   gem "selenium-webdriver"
   gem 'factory_bot_rails'
   gem 'byebug'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end

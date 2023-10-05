@@ -13,7 +13,11 @@ class Character < ApplicationRecord
 
         pokemon_appeared = Random.rand(1..150)
         poke_api_service = PokeApiService.new
-        @pokemon_data = poke_api_service.get_pokemon_data(pokemon_appeared) # TODO change the pokemon data for something else
+        @pokemon_data = {
+            pokemon_id: poke_api_service.get_pokemon_data(pokemon_appeared)['id'],
+            pokemon_name: poke_api_service.get_pokemon_data(pokemon_appeared)['name'],
+            pokemon_type: poke_api_service.get_pokemon_data(pokemon_appeared)['types'][0]['type']['name']
+        }
     end
 
     def grass_has_a_pokemon?

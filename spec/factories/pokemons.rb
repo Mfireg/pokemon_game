@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :pokemon do
-    name { "MyString" }
-    element { "MyString" }
+    name { "Pikachu" }
+    element { "Thunder" }
   end
 end

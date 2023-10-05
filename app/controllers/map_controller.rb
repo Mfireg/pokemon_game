@@ -5,17 +5,22 @@ class MapController < ApplicationController
 
     def walk
       @character = Character.find(params[:character_id])
-      if @character.get_into_grass == "Nothing is here"
+      pokemon_appeared = @character.get_into_grass
+      if pokemon_appeared == "Nothing is here"
+        render template: "map/index"
       else
-        redirect_to :battle, notice: "A Pokemon has appeared."
+        redirect_to battle_path(pokemon: pokemon_appeared), notice: "A Pokemon has appeared."
       end
     end
+    
 
-    def battle; end
+    def battle
+      @pokemon = params[:pokemon]
+    end
 
     private
 
     def map_params
-        params.require(:map).permit %i[character_id]
+      params.require(:map).permit(:character_id, :pokemon_id, :pokemon_name, :pokemon_type)
     end
 end
