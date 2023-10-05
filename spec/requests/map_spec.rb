@@ -15,7 +15,7 @@ RSpec.describe MapController, type: :request do
       allow_any_instance_of(Character).to receive(:get_into_grass).and_return("A Pokemon has appeared.")
       post walk_around_path(character_id: character.id)
 
-      expect(response).to redirect_to(battle_path)
+      expect(response).to redirect_to(battle_path(pokemon: "A Pokemon has appeared."))
       expect(flash[:notice]).to eq("A Pokemon has appeared.")
     end
 

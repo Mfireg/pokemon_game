@@ -1,3 +1,4 @@
+<% if @pokemon %>
 <div data-controller="battle">
   <span style="display: none;" data-battle-target="pokemonId">
     <%= @pokemon["pokemon_id"] %>
@@ -28,3 +29,4 @@
     <%= @captured %>
   </turbo-frame>
 </div>
+<% end %>
